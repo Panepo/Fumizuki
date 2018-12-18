@@ -4,9 +4,9 @@ import time
 import numpy as np
 import cv2
 
-from util import Time
-from util import ImageBatch
-from util import psnr
+from util.util import Time
+from util.util import ImageBatch
+from util.util import psnr
 
 training_ratio = 1
 main_data_path = '.'
@@ -37,13 +37,13 @@ def get_train_set(scale=2):
 
 def get_test_set(batch_size, scale=2):
     '''
-    PATH of TEST SET(SET5)
+    PATH of TEST SET
     '''
-    test_labels_path = '{}/image/Set5/ground_truth/*.npy'.format(main_data_path)
-    test_bicubic_inputs_path = '{}/image/Set5/blur_{}x/*.npy'.format(main_data_path, scale)
-    test_rdn_inputs_path = '{}/image/Set5/low_rs_{}x/*.npy'.format(main_data_path, scale)
+    test_labels_path = '{}/image/test_hr/*.npy'.format(main_data_path)
+    test_bicubic_inputs_path = '{}/image/test_bb/*.npy'.format(main_data_path)
+    test_rdn_inputs_path = '{}/image/test_lr/*.npy'.format(main_data_path)
     '''
-    TEST SET(SET5)
+    TEST SET
     '''
     test_labels_batch = ImageBatch(test_labels_path, training_ratio=training_ratio, on_sort=True, ext='npy')
     test_bicubic_inputs_batch = ImageBatch(test_bicubic_inputs_path, training_ratio=training_ratio, on_sort=True, ext='npy')
