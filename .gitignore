@@ -118,8 +118,4 @@ $RECYCLE.BIN/
 *.lnk
 
 image/
-imageTrain/
-imageValidate/
-imageTrain*/
-imageValidate*/
 checkpoint/
