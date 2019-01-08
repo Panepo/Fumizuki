@@ -91,6 +91,7 @@ def training(RDN, config):
     '''
     tf_config = tf.ConfigProto()
     tf_config.gpu_options.per_process_gpu_memory_fraction = 0.8
+    tf_config.gpu_options.allow_growth = True
     sess = tf.Session(config=tf_config)
     writer = tf.summary.FileWriter('./model/rdn_result', sess.graph)
     sess.run(tf.global_variables_initializer())
